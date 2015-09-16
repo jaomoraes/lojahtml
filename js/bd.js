@@ -27,7 +27,6 @@ function list_data() {
 	
 	var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
     var msg = "";
-    var book = {id:0, author:"", title:"", publisher:"", price:""};
     var books = [];
     
 	    db.transaction(function (tx) {
@@ -35,6 +34,7 @@ function list_data() {
            var len = results.rows.length, i;
 				
            for (i = 0; i < len; i++){
+           	  book = new Object();
               book.id =  results.rows.item(i).id;
               book.author = results.rows.item(i).author;
               book.title = results.rows.item(i).title;
